@@ -33,18 +33,18 @@ src/
 ## 📝 Étapes à suivre
 
 ### 1. Mise en place
-- ❌ Créer le dossier `src/avaj/`.
-- ❌ Ajouter un fichier `README.md` (celui-ci).
-- ❌ Préparer le fichier `scenario.txt`.
+- ✅Créer le dossier `src/avaj/`.
+- ✅ Ajouter un fichier `README.md` (celui-ci).
+- ✅ Préparer le fichier `scenario.txt`.
 
 ---
 
 ### 2. Classes de base
-- ❌ Créer la classe abstraite `Aircraft` avec :
+- ✅ Créer la classe abstraite `Aircraft` avec :
   - attributs communs : name, longitude, latitude, height.
   - un constructeur.
   - une méthode abstraite `updateWeather(String weather)`.
-- ❌ Créer la classe `JetPlane` qui hérite de `Aircraft`.
+- ✅ Créer la classe `JetPlane` qui hérite de `Aircraft`.
 - ❌ Créer la classe `Balloon` qui hérite de `Aircraft`.
 - ❌ Implémenter `updateWeather` dans chaque sous-classe avec des messages simples :
   - `JetPlane`: "JetPlane réagit au [météo]".
