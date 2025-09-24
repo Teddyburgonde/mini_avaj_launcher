@@ -16,6 +16,7 @@ Créer une petite simulation où :
 
 ## 📂 Structure du projet
 
+```c
 src/
 └── avaj/
 ├── Simulator.java // Point d’entrée
@@ -25,7 +26,7 @@ src/
 ├── AircraftFactory.java // Factory
 ├── WeatherProvider.java // Générateur météo
 └── WeatherTower.java // Notifie les avions
-
+```
 
 ---
 
