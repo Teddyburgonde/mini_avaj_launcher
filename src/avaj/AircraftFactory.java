@@ -1,0 +1,12 @@
+public class AircraftFactory {
+	public static Aircraft newAircraft(String type, String name, int longitude, int latitude, int height) {
+		if (type.equals("Balloon")) {
+			return new Balloon(name, longitude, latitude, height);
+		}
+		else if (type.equals("JetPlane")){
+			return new JetPlane(name, longitude, latitude, height);
+		}
+		System.out.println("Erreur: type d'avion inconnu -> " + type);
+		return null;
+	}
+}

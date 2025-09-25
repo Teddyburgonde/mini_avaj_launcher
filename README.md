@@ -45,24 +45,24 @@ src/
   - un constructeur.
   - une méthode abstraite `updateWeather(String weather)`.
 - ✅ Créer la classe `JetPlane` qui hérite de `Aircraft`.
-- ❌ Créer la classe `Balloon` qui hérite de `Aircraft`.
-- ❌ Implémenter `updateWeather` dans chaque sous-classe avec des messages simples :
+- ✅  Créer la classe `Balloon` qui hérite de `Aircraft`.
+- ✅  Implémenter `updateWeather` dans chaque sous-classe avec des messages simples :
   - `JetPlane`: "JetPlane réagit au [météo]".
   - `Balloon`: "Balloon réagit au [météo]".
 
 ---
 
 ### 3. Factory
-- ❌ Créer `AircraftFactory` avec une méthode statique `newAircraft(type, name, long, lat, height)`.
-- ❌ Retourner le bon type d’objet (`JetPlane` ou `Balloon`).
-- ❌ Gérer le cas où le type n’existe pas (erreur).
+- ✅  Créer `AircraftFactory` avec une méthode statique `newAircraft(type, name, long, lat, height)`.
+- ✅  Retourner le bon type d’objet (`JetPlane` ou `Balloon`).
+- ✅  Gérer le cas où le type n’existe pas (erreur).
 
 ---
 
 ### 4. Météo
-- ❌ Créer `WeatherProvider` avec une méthode `getCurrentWeather()` qui retourne aléatoirement :
+- ✅ Créer `WeatherProvider` avec une méthode `getCurrentWeather()` qui retourne aléatoirement :
   - `SUN`, `RAIN`, `FOG`, `SNOW`.
-- ❌ Ajouter `WeatherTower` qui appelle `getCurrentWeather()` et transmet aux avions.
+- ✅ Ajouter `WeatherTower` qui appelle `getCurrentWeather()` et transmet aux avions.
 
 ---
 
