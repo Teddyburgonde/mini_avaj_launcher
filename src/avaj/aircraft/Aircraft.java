@@ -1,4 +1,6 @@
-abstract class Aircraft {
+package avaj.aircraft;
+
+public abstract class Aircraft {
 
 	protected String name;
 	protected int longitude;

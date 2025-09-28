@@ -1,3 +1,5 @@
+package avaj.aircraft;
+
 public class AircraftFactory {
 	public static Aircraft newAircraft(String type, String name, int longitude, int latitude, int height) {
 		if (type.equals("Balloon")) {
@@ -6,7 +8,7 @@ public class AircraftFactory {
 		else if (type.equals("JetPlane")){
 			return new JetPlane(name, longitude, latitude, height);
 		}
-		System.out.println("Erreur: type d'avion inconnu -> " + type);
+		// Dans la version finale : gérer aussi Helicopter
 		return null;
 	}
 }
