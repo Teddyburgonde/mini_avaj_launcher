@@ -67,21 +67,18 @@ src/
 ---
 
 ### 5. Simulation
-- ❌ Dans `Simulator.java` :
+- ✅ Dans `Simulator.java` :
   - Lire `scenario.txt`.
   - Récupérer le nombre de cycles.
   - Créer les avions via la Factory.
   - Boucler sur les cycles :
     - Demander la météo.
     - Chaque avion affiche un message.
-- ❌ Afficher les logs dans la **console** (pas besoin de fichier pour ce mini-projet).
 
 ---
 
 ### 6. Tests
-- ❌ Lancer avec un scénario simple :
-
-
+- ❌ Lancer avec un scénario simple : 
 - ❌ Vérifier que chaque cycle météo affiche bien les messages attendus.
 
 ---
