@@ -11,7 +11,8 @@ src/
 │ ├── Balloon.java
 │ ├── Helicopter.java
 │ └── AircraftFactory.java
-│
+│ └── Coordinates.java
+|
 └── simulator/
 ├── Simulator.java
 ├── WeatherProvider.java
@@ -39,27 +40,32 @@ src/
 - ✅ Créer `Aircraft` (classe abstraite avec name, longitude, latitude, height).
 - ✅ Créer `JetPlane`.
 - ✅ Créer `Balloon`.
-- ❌ Créer `Helicopter`.
+- ✅ Créer `Helicopter`.
+- ✅ Créer Coordinates (classe immuable avec longitude, latitude, height).
 
 ---
 
 ### 3 — Factory
 - ✅ Créer `AircraftFactory` avec `newAircraft(type, name, long, lat, height)`.
-- ❌ Ajouter le type `Helicopter`.
-- ❌ Supprimer les `System.out.println` (pas autorisés).
+- ✅ Ajouter le type `Helicopter`.
+- ✅ Supprimer les `System.out.println` (pas autorisés).
+- ❌ Adapter AircraftFactory et Aircraft pour utiliser Coordinates au lieu de 3 int.
 
 ---
 
 ### 4 — Météo (Singleton)
-- ❌ Transformer `WeatherProvider` en **Singleton**.
+- ✅ Transformer `WeatherProvider` en **Singleton**.
 - ❌ Modifier `getCurrentWeather` pour prendre des `Coordinates`.
 
 ---
 
 ### 5 — Tour météo (Observer)
-- ❌ Ajouter une liste `observers` dans `WeatherTower`.
-- ❌ Ajouter `register(Aircraft a)` et `unregister(Aircraft a)`.
+- ✅ Ajouter une liste `observers` dans `WeatherTower`.
+- ✅ Ajouter `register(Aircraft a)` et `unregister(Aircraft a)`.
 - ❌ Modifier `changeWeather()` pour notifier tous les avions enregistrés.
+- ❌ Modifier changeWeather() pour :
+  - demander la météo via WeatherProvider.getProvider().getCurrentWeather(coords)
+  - notifier chaque avion avec updateWeather.
 
 ---
 

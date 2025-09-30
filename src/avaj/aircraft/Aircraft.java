@@ -3,16 +3,24 @@ package avaj.aircraft;
 public abstract class Aircraft {
 
 	protected String name;
-	protected int longitude;
-	protected int latitude;
-	protected int height;
+	protected Coordinates coordinates;
+	protected long id;
+	private static long idCounter = 0;
 
-	public Aircraft(String name, int longitude, int latitude, int height){
+	public Aircraft(String name, Coordinates coordinates){
 		this.name = name;
-		this.longitude = longitude;
-		this.latitude = latitude;
-		this.height = height;
+		this.coordinates = coordinates;
+		this.id = nextId();
 	}
 
-	public abstract void updateWeather(String weather);
+	public abstract void updateConditions(String weather);
+
+	protected long nextId() {
+		return ++idCounter;
+	}
+
+	@Override
+	public String toString() {
+		return getClass().getSimpleName() + "#" + this.name + "(" + this.id + ")";
+	}
 }
