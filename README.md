@@ -12,15 +12,32 @@ src/
 │ ├── Helicopter.java
 │ └── AircraftFactory.java
 │ └── Coordinates.java
+│ └── Flyable.java
 |
 └── simulator/
 ├── Simulator.java
 ├── WeatherProvider.java
 ├── WeatherTower.java
-└── Logger.java
 ```
 
 ---
+
+## Checklist[]
+
+Aircraft.java ✅
+Coordinates.java ✅
+Balloon.java ❌
+JetPlane.java ❌
+Helicopter.java ❌
+...
+
+
+
+
+
+
+
+
 
 ## 📝 Étapes
 
