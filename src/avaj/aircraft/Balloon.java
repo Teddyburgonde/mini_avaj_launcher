@@ -1,4 +1,7 @@
 package avaj.aircraft;
+import java.util.logging.Logger;
+
+import avaj.simulator.WeatherTower;
 
 public class Balloon extends Aircraft {
 	
@@ -45,7 +48,7 @@ public class Balloon extends Aircraft {
 					coordinates.getLatitude(),
 					coordinates.getHeight() - 15
 				);
-				Logger.log(this + ": It's snowing. We're gonna crash!");
+				logger.info(this + ": It's snowing. We're gonna crash!");
 				break;
 		}
 
