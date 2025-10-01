@@ -65,7 +65,7 @@ public class Balloon extends Aircraft {
 		
 			if (tower != null) {
 				tower.unregister(this);
-	}
-}
+			}
+		}
 	}	
 }
