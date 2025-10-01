@@ -1,74 +1,78 @@
 package avaj.aircraft;
-import java.util.logging.Logger;
 
+import avaj.simulator.Logger;
 import avaj.simulator.WeatherTower;
 
-public class Balloon extends Aircraft {
-	
-	public Balloon(String name, Coordinates coordinates) {
-		super(name, coordinates);
-	}
+public class Balloon extends Aircraft implements Flyable {
 
-	private static final Logger logger = Logger.getLogger(Balloon.class.getName());
-	protected WeatherTower tower;
+    private WeatherTower tower;
 
-	@Override
-	public void updateConditions(String weather) {
-		switch (weather) {
-			case "SUN":
-				this.coordinates = new Coordinates(
-					coordinates.getLongitude() + 2,
-					coordinates.getLatitude(),
-					coordinates.getHeight() + 4
-				);
-				logger.info(this + ": Let's enjoy the good weather and take some pics.");
-				break;
-		
-			case "RAIN":
-				this.coordinates = new Coordinates(
-					coordinates.getLongitude(),
-					coordinates.getLatitude(),
-					coordinates.getHeight() - 5
-				);
-				logger.info(this + ": Damn you rain! You messed up my balloon.");
-				break;
-		
-			case "FOG":
-				this.coordinates = new Coordinates(
-					coordinates.getLongitude(),
-					coordinates.getLatitude(),
-					coordinates.getHeight() - 3
-				);
-				logger.info(this + ": Can't see anything! This fog is dangerous.");
-				break;
-		
-			case "SNOW":
-				this.coordinates = new Coordinates(
-					coordinates.getLongitude(),
-					coordinates.getLatitude(),
-					coordinates.getHeight() - 15
-				);
-				logger.info(this + ": It's snowing. We're gonna crash!");
-				break;
-		}
+    public Balloon(String name, Coordinates coordinates) {
+        super(name, coordinates);
+    }
 
-		if (this.coordinates.getHeight() > 100) {
-			this.coordinates = new Coordinates(
-				this.coordinates.getLongitude(),
-				this.coordinates.getLatitude(),
-				100
-			);
-		}
-		
-		// Si l'avion doit atterrir
-		if (this.coordinates.getHeight() <= 0) {
-			logger.info(this + " landing at [" 
-				+ coordinates.getLongitude() + ", " 
-				+ coordinates.getLatitude() + "].");
-		
-			if (tower != null) {
-				tower.unregister(this);
-			}
-		}
-	}	
+    @Override
+    public void updateConditions() {
+        String weather = tower.getWeather(this.coordinates);
+
+        switch (weather) {
+            case "SUN":
+                this.coordinates = new Coordinates(
+                    coordinates.getLongitude() + 2,
+                    coordinates.getLatitude(),
+                    coordinates.getHeight() + 4
+                );
+                Logger.log(this + ": Let's enjoy the good weather and take some pics.");
+                break;
+
+            case "RAIN":
+                this.coordinates = new Coordinates(
+                    coordinates.getLongitude(),
+                    coordinates.getLatitude(),
+                    coordinates.getHeight() - 5
+                );
+                Logger.log(this + ": Damn you rain! You messed up my balloon.");
+                break;
+
+            case "FOG":
+                this.coordinates = new Coordinates(
+                    coordinates.getLongitude(),
+                    coordinates.getLatitude(),
+                    coordinates.getHeight() - 3
+                );
+                Logger.log(this + ": Can't see anything! This fog is dangerous.");
+                break;
+
+            case "SNOW":
+                this.coordinates = new Coordinates(
+                    coordinates.getLongitude(),
+                    coordinates.getLatitude(),
+                    coordinates.getHeight() - 15
+                );
+                Logger.log(this + ": It's snowing. We're gonna crash!");
+                break;
+        }
+
+        // Hauteur maximale 100
+        if (this.coordinates.getHeight() > 100) {
+            this.coordinates = new Coordinates(
+                this.coordinates.getLongitude(),
+                this.coordinates.getLatitude(),
+                100
+            );
+        }
+
+        // Atterrissage si height <= 0
+        if (this.coordinates.getHeight() <= 0) {
+            Logger.log(this + " landing.");
+            tower.unregister(this);
+        }
+    }
+
+    @Override
+    public void registerTower(WeatherTower tower) {
+        this.tower = tower;
+        tower.register(this);
+        Logger.log("Tower says: " + this + " registered to weather tower.");
+    }
 }

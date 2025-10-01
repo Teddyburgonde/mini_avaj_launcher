@@ -13,8 +13,6 @@ public abstract class Aircraft {
 		this.id = nextId();
 	}
 
-	public abstract void updateConditions(String weather);
-
 	protected long nextId() {
 		return ++idCounter;
 	}
